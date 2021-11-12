@@ -58,7 +58,7 @@ export class ProductCustomizableOption extends PureComponent {
     }
 
     getLabel(option, overrideBase = null, overridePrice = null) {
-        const { currencyCode } = this.props;
+        const { currencyCode, type } = this.props;
 
         const {
             baseLabel,
@@ -68,7 +68,9 @@ export class ProductCustomizableOption extends PureComponent {
         return (
             <span block="ProductCustomizableItem" elem="Label">
                 { overrideBase || baseLabel }
-                <strong>{ overridePrice || priceLabel }</strong>
+                <strong block="ProductCustomizableItem" elem="LabelPrice" mods={ { type } }>
+                    { ` ${ overridePrice || priceLabel }` }
+                </strong>
             </span>
         );
     }
@@ -253,7 +255,7 @@ export class ProductCustomizableOption extends PureComponent {
         const { isRequired } = this.props;
 
         return (
-            <div block="ProductCustomizableItem" elem="Heading">
+            <div block="ProductCustomizableItem" elem="HeadingBold">
                 { title }
                 { isRequired && <strong block="ProductCustomizableItem" elem="Required"> *</strong> }
             </div>

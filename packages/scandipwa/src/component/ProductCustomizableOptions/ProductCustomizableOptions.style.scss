@@ -118,6 +118,20 @@
         }
     }
 
+    &-Label {
+        &Price {
+            &_type {
+                &_checkbox,
+                &_radio,
+                &_select,
+                &_multiple,
+                &_drop_down {
+                    white-space: break-spaces;
+                }
+            }
+        }
+    }
+
     &_isPlaceholder {
         animation: var(--placeholder-animation);
         background-image: var(--placeholder-image);
